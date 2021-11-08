@@ -1,0 +1,24 @@
+diff -Naur easy_captcha-0.6.5.orig/lib/easy_captcha/captcha_controller.rb easy_captcha-0.6.5/lib/easy_captcha/captcha_controller.rb
+--- easy_captcha-0.6.5.orig/lib/easy_captcha/captcha_controller.rb	2021-10-28 13:31:54.126630362 +0800
++++ easy_captcha-0.6.5/lib/easy_captcha/captcha_controller.rb	2021-10-28 13:29:57.245066835 +0800
+@@ -1,7 +1,7 @@
+ module EasyCaptcha
+   # captcha controller
+   class CaptchaController < ActionController::Base
+-    before_filter :overwrite_cache_control
++    before_action :overwrite_cache_control
+     # captcha action send the generated image to browser
+     def captcha
+       if params[:format] == "wav" and EasyCaptcha.espeak?
+diff -Naur easy_captcha-0.6.5.orig/lib/easy_captcha/generator/default.rb easy_captcha-0.6.5/lib/easy_captcha/generator/default.rb
+--- easy_captcha-0.6.5.orig/lib/easy_captcha/generator/default.rb	2021-10-28 13:31:54.130630415 +0800
++++ easy_captcha-0.6.5/lib/easy_captcha/generator/default.rb	2021-10-28 11:17:44.000000000 +0800
+@@ -61,7 +61,7 @@
+         require 'rmagick' unless defined?(Magick)
+ 
+         config = self
+-        canvas = Magick::Image.new(EasyCaptcha.image_width, EasyCaptcha.image_height) do |variable|
++        canvas = Magick::Image.new(EasyCaptcha.image_width, EasyCaptcha.image_height) do
+           self.background_color = config.image_background_color unless config.image_background_color.nil?
+           self.background_color = 'none' if config.background_image.present?
+         end
