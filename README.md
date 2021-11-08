@@ -15,9 +15,9 @@ add to Gemfile
   gem 'easy_captcha_rails', require: 'easy_captcha'
 ```
 
-## Patch origianl without install this
+## Patch original gem without install this
 
-use the "easy_captcha-0.6.5.patch" file to patch the original.
+use the "easy_captcha-0.6.5.patch" file to patch the original gem.
 
 ## License
 
