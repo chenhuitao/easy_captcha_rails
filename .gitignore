@@ -1,15 +1,2 @@
-# rcov generated
-coverage
-
-# rdoc generated
-rdoc
-
-# yard generated
-doc
-.yardoc
-
-# jeweler generated
-pkg
-
 *.gem
 
